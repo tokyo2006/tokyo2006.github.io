@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="本文主要描述如何搭建Nomad服务，以及如何与Consul集成">
+<meta name="keywords" content="Nomad, Devops, Consul, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="本文主要描述如何搭建Nomad服务，以及如何与Consul集成"/>
+<meta property="og:title" content="搭建Nomad服务与Consul集成 : blog.lkjxblog.tech"/>
+<meta property="og:site_name" content="blog.lkjxblog.tech is Dawn Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.tech/post/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-07-30"/>
+<meta property="article:modified_time" content="2017-07-30"/>
+
+
+
+<meta property="article:tag" content="Nomad">
+<meta property="article:tag" content="Devops">
+<meta property="article:tag" content="Consul">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="搭建Nomad服务与Consul集成 : blog.lkjxblog.tech">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="本文主要描述如何搭建Nomad服务，以及如何与Consul集成">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.tech">
+
+
+
+    <base href="https://blog.lkjxblog.tech">
+    <title>搭建Nomad服务与Consul集成 - blog.lkjxblog.tech</title>
+    <link rel="canonical" href="https://blog.lkjxblog.tech/post/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.tech/css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.tech/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.tech/apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.tech/" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Dawn Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.tech/post/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.tech/project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> code </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.tech/presentation/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.tech/about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=%e6%90%ad%e5%bb%baNomad%e6%9c%8d%e5%8a%a1%e4%b8%8eConsul%e9%9b%86%e6%88%90-https%3a%2f%2fblog.lkjxblog.tech%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BAnomad%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%258Econsul%25E9%259B%2586%25E6%2588%2590%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.tech%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BAnomad%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%258Econsul%25E9%259B%2586%25E6%2588%2590%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.tech%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BAnomad%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%258Econsul%25E9%259B%2586%25E6%2588%2590%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.tech%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BAnomad%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%258Econsul%25E9%259B%2586%25E6%2588%2590%2f&title=%e6%90%ad%e5%bb%baNomad%e6%9c%8d%e5%8a%a1%e4%b8%8eConsul%e9%9b%86%e6%88%90&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.tech%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BAnomad%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%258Econsul%25E9%259B%2586%25E6%2588%2590%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.tech%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BAnomad%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%258Econsul%25E9%259B%2586%25E6%2588%2590%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">搭建Nomad服务与Consul集成</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>Nomad是HashCorp的一款开源的编排工具,同样身为HashCorp的服务发现工具consul能够很好的与Nomad进行集成，2个轻量级别的工具可以很好的支持微服务的快速发布。这里会简单的说一下nomad的集群以及consul集群的集成
+</code></pre>
+<!-- raw HTML omitted -->
+<h1 id="系统环境">系统环境</h1>
+<ul>
+<li>Ubuntu 17.04</li>
+<li>Docker 17.03.1-ce</li>
+<li>Consul 0.9</li>
+<li>Nomad 0.5.6</li>
+<li>Nomad master  192.168.99.100</li>
+<li>Nomad node1   192.168.99.101</li>
+<li>Nomad node2   192.168.99.103</li>
+<li>Consul master 192.168.99.102</li>
+</ul>
+<blockquote>
+<p>本文中的Nomad都是基于docker安装的.</p>
+</blockquote>
+<h2 id="一-nomad-master-安装nomad-master">一. Nomad master 安装（Nomad master)</h2>
+<ol>
+<li>
+<p>安装Nomad agent</p>
+<ol>
+<li>
+<p>准备好配置文件 config.hcl 并将它放在/opt/nomad/config目录中</p>
+<pre><code>name = &quot;master&quot;
+
+bind_addr = &quot;192.168.99.100&quot; # the default
+
+server_service_name=&quot;nomad-server&quot;
+client_service_name=&quot;nomad-client&quot;
+
+data_dir  = &quot;/nomad/data&quot;
+
+advertise {
+  # Defaults to the node's hostname. If the hostname resolves to a loopback
+  # address you must manually configure advertise addresses.
+  http = &quot;192.168.99.100:4646&quot;
+  rpc  = &quot;192.168.99.100:4647&quot;
+  serf = &quot;192.168.99.100:4648&quot; # non-default ports may be specified
+}
+disable_update_check = true
+server {
+  enabled          = true
+  bootstrap_expect = 3
+}
+
+client {
+  enabled       = true
+  network_speed = 10
+  options {
+    &quot;driver.raw_exec.enable&quot; = &quot;1&quot;
+  }
+}
+
+consul {
+  address = &quot;192.168.99.102:8500&quot;
+}
+
+atlas {
+  infrastructure = &quot;hashicorp/mars&quot;
+  token          = &quot;atlas.v1.AFE84330943&quot;
+}
+</code></pre></li>
+<li>
+<p>执行以下docker 命令来创建nomad master实例</p>
+<pre><code>docker run -d --name nomad --net host  \
+-v &quot;/opt/nomad/data:/data&quot; \
+-v &quot;/opt/nomad/config:/config&quot; \
+-v &quot;/var/run/docker.sock:/var/run/docker.sock&quot; \
+-v &quot;/tmp:/tmp&quot; makeomatic/nomad
+</code></pre></li>
+</ol>
+</li>
+<li>
+<p>安装Counsul agent</p>
+<ol>
+<li>
+<p>安装consul</p>
+<ol>
+<li>下载安装文件<a href="https://releases.hashicorp.com/consul/0.9.2/consul_0.9.2_linux_amd64.zip?_ga=2.263591564.1830874971.1502669774-161034209.1500947169">consul.zip</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>准备好配置文件config.hcl并将文件放在/opt/consul/config目录中</p>
+<pre><code> ```
+ {
+     &quot;datacenter&quot;: &quot;global&quot;,
+     &quot;data_dir&quot;: &quot;/data/consul&quot;, #确保有/data/consul目录
+     &quot;log_level&quot;: &quot;INFO&quot;,
+     &quot;node_name&quot;: &quot;nomadmaster.local&quot;,
+     &quot;server&quot;: false,
+     &quot;advertise_addr&quot;: &quot;192.168.99.100&quot;,
+     &quot;addresses&quot;: {
+       &quot;http&quot;: &quot;0.0.0.0&quot;
+     },
+     &quot;ui&quot;:true,
+     &quot;ports&quot;: {
+       &quot;https&quot;: -1
+     },
+     &quot;check&quot;: {
+       &quot;id&quot;: &quot;c1-check&quot;,
+       &quot;name&quot;: &quot;http on port 8500&quot;,
+       &quot;http&quot;: &quot;http://172.16.30.100:8500/&quot;,
+       &quot;interval&quot;: &quot;5s&quot;,
+       &quot;timeout&quot;: &quot;1s&quot;
+     },
+     &quot;start_join&quot;: [&quot;192.168.99.102&quot;],
+     #&quot;retry_join&quot;:[&quot;172.16.30.102&quot;, &quot;172.16.30.103&quot;],
+     &quot;bootstrap_expect&quot;:1,
+     &quot;retry_interval&quot;: &quot;30s&quot;
+ }
+ ```
+</code></pre>
+<ol>
+<li>启动consul agent
+<pre><code>    consul agent -config-dir=/opt/consul/config
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<h2 id="二-node-安装nomad-node1和nomad-node2">二. Node 安装(Nomad node1和Nomad node2)</h2>
+<blockquote>
+<p>node2的安装请参考node1</p>
+</blockquote>
+<ol>
+<li>
+<p>安装Nomad agent</p>
+<ol>
+<li>
+<p>准备好配置文件 config.hcl 并将它放在/opt/nomad/config目录中</p>
+<pre><code>name = &quot;node01&quot;
+
+bind_addr = &quot;192.168.99.101&quot; # the default
+
+server_service_name=&quot;nomad-server&quot;
+client_service_name=&quot;nomad-client&quot;
+
+data_dir  = &quot;/nomad/data&quot;
+
+advertise {
+  # Defaults to the node's hostname. If the hostname resolves to a loopback
+  # address you must manually configure advertise addresses.
+  http = &quot;192.168.99.101:4646&quot;
+  rpc  = &quot;192.168.99.101:4647&quot;
+  serf = &quot;192.168.99.101:4648&quot; # non-default ports may be specified
+}
+disable_update_check = true
+server {
+  enabled          = true
+  bootstrap_expect = 3
+}
+
+client {
+  enabled       = true
+  network_speed = 10
+  options {
+    &quot;driver.raw_exec.enable&quot; = &quot;1&quot;
+  }
+}
+
+consul {
+  address = &quot;192.168.99.102:8500&quot;
+}
+
+atlas {
+  infrastructure = &quot;hashicorp/mars&quot;
+  token          = &quot;atlas.v1.AFE84330943&quot;
+}
+</code></pre></li>
+<li>
+<p>执行以下docker 命令来创建nomad master实例</p>
+<pre><code>docker run -d --name nomad --net host  \
+-v &quot;/opt/nomad/data:/data&quot; \
+-v &quot;/opt/nomad/config:/config&quot; \
+-v &quot;/var/run/docker.sock:/var/run/docker.sock&quot; \
+-v &quot;/tmp:/tmp&quot; makeomatic/nomad
+</code></pre></li>
+</ol>
+</li>
+<li>
+<p>安装Counsul agent</p>
+<ol>
+<li>
+<p>安装consul</p>
+<ol>
+<li>下载安装文件<a href="https://releases.hashicorp.com/consul/0.9.2/consul_0.9.2_linux_amd64.zip?_ga=2.263591564.1830874971.1502669774-161034209.1500947169">consul.zip</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>准备好配置文件config.hcl并将文件放在/opt/consul/config目录中</p>
+<pre><code> ```
+ {
+     &quot;datacenter&quot;: &quot;global&quot;,
+     &quot;data_dir&quot;: &quot;/data/consul&quot;, #确保有/data/consul目录
+     &quot;log_level&quot;: &quot;INFO&quot;,
+     &quot;node_name&quot;: &quot;nomad01.local&quot;,
+     &quot;server&quot;: false,
+     &quot;advertise_addr&quot;: &quot;192.168.99.101&quot;,
+     &quot;addresses&quot;: {
+       &quot;http&quot;: &quot;0.0.0.0&quot;
+     },
+     &quot;ui&quot;:true,
+     &quot;ports&quot;: {
+       &quot;https&quot;: -1
+     },
+     &quot;check&quot;: {
+       &quot;id&quot;: &quot;c1-check&quot;,
+       &quot;name&quot;: &quot;http on port 8500&quot;,
+       &quot;http&quot;: &quot;http://172.16.30.101:8500/&quot;,
+       &quot;interval&quot;: &quot;5s&quot;,
+       &quot;timeout&quot;: &quot;1s&quot;
+     },
+     &quot;start_join&quot;: [&quot;192.168.99.102&quot;],
+     #&quot;retry_join&quot;:[&quot;172.16.30.102&quot;, &quot;172.16.30.103&quot;],
+     &quot;bootstrap_expect&quot;:1,
+     &quot;retry_interval&quot;: &quot;30s&quot;
+ }
+</code></pre>
+<pre><code>   
+1. 启动consul agent
+    ```
+        consul agent -config-dir=/opt/consul/config
+    ```
+</code></pre></li>
+</ol>
+<h2 id="三-consul-server安装">三. Consul Server安装</h2>
+<ol>
+<li>
+<p>安装Counsul agent</p>
+<ol>
+<li>
+<p>安装consul</p>
+<ol>
+<li>下载安装文件<a href="https://releases.hashicorp.com/consul/0.9.2/consul_0.9.2_linux_amd64.zip?_ga=2.263591564.1830874971.1502669774-161034209.1500947169">consul.zip</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>准备好配置文件config.hcl并将文件放在/opt/consul/config目录中</p>
+<pre><code> ```
+ {
+     &quot;datacenter&quot;: &quot;global&quot;,
+     &quot;data_dir&quot;: &quot;/data/consul&quot;, #确保有/data/consul目录
+     &quot;log_level&quot;: &quot;INFO&quot;,
+     &quot;node_name&quot;: &quot;consul.local&quot;,
+     &quot;server&quot;: true,
+     &quot;advertise_addr&quot;: &quot;192.168.99.102&quot;,
+     &quot;addresses&quot;: {
+       &quot;http&quot;: &quot;0.0.0.0&quot;
+     },
+     &quot;ui&quot;:true,
+     &quot;ports&quot;: {
+       &quot;https&quot;: -1
+     },
+     &quot;check&quot;: {
+       &quot;id&quot;: &quot;c1-check&quot;,
+       &quot;name&quot;: &quot;http on port 8500&quot;,
+       &quot;http&quot;: &quot;http://192.168.99.102:8500/&quot;,
+       &quot;interval&quot;: &quot;5s&quot;,
+       &quot;timeout&quot;: &quot;1s&quot;
+     },
+     &quot;start_join&quot;: [&quot;192.168.99.102&quot;],
+     #&quot;retry_join&quot;:[&quot;172.16.30.102&quot;, &quot;172.16.30.103&quot;],
+     &quot;bootstrap_expect&quot;:1,
+     &quot;retry_interval&quot;: &quot;30s&quot;
+ }
+</code></pre>
+<pre><code>   
+1. 启动consul agent
+    ```
+        consul agent -config-dir=/opt/consul/config
+    ```
+</code></pre></li>
+</ol>
+<h2 id="四验证">四.验证</h2>
+<ol>
+<li>
+<p>nomad验证</p>
+<p>执行 nomad node-staus 可以看到类似的信息</p>
+<pre><code>$ nomad server-members
+ID        Datacenter  Name   Class   Drain  Status
+fca62612  dc1         nomad  &lt;none&gt;  false  ready
+c887deef  dc1         nomad  &lt;none&gt;  false  ready
+c887deef  dc1         nomad  &lt;none&gt;  false  ready
+</code></pre><p>可以看到3个节点的信息</p>
+</li>
+<li>
+<p>查看consul</p>
+<p>打开http://192.168.99.102:8500 可以看到所有的consul节点的服务信息，每个节点包含的nomad服务信息也可以看到</p>
+</li>
+</ol>
+<p>
+自此所有的服务都搭建完毕，我们可以通过nomad与consul的集群服务来快速的发布相应的微服务。</p>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Sun Jul 30, 2017 </h4>
+		<h5 id="wc"> 600 Words </h5>
+		<h5 id="readtime"> Read in about 3 Min </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.tech/topics/nomad">Nomad</a> </li>
+	
+		<li><a href="https://blog.lkjxblog.tech/topics/devops">Devops</a> </li>
+	
+		<li><a href="https://blog.lkjxblog.tech/topics/consul">Consul</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.tech/tags/nomad">Nomad</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.tech/tags/devops">Devops</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.tech/tags/consul">Consul</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.tech/post/install_kubernetes_in_centos/"><i class="icon-nixon-arrow-left"></i> 在CentOS7中安装Kubernetes</a><br>
+	</section>
+	<section id="next">
+		&nbsp;
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="509">
+<meta itemprop="datePublished" content="2017-07-30">
+<meta itemprop="url" content="https://blog.lkjxblog.tech/post/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        theme="github-light"
+        comment-order="desc"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2022
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Dawn Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.tech/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on Dawn Zeng&#39;s Blog</title>
+    <link>https://blog.lkjxblog.tech/topics/database/</link>
+    <description>Recent content in database on Dawn Zeng&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.lkjxblog.tech/topics/database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>备份mysql数据库的shell脚本</title>
+      <link>https://blog.lkjxblog.tech/post/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/post/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;p&gt;领导说每天都需要备份一下mysql，好吧，我总不能天天手动去弄，所以我自己写了一份shell脚本用来自动备份，crontab还是很好的呵呵!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

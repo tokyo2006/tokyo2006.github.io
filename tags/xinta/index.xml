@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xinta on Dawn Zeng&#39;s Blog</title>
+    <link>https://blog.lkjxblog.tech/tags/xinta/</link>
+    <description>Recent content in xinta on Dawn Zeng&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Mar 2017 14:18:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.lkjxblog.tech/tags/xinta/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于</title>
+      <link>https://blog.lkjxblog.tech/about/</link>
+      <pubDate>Fri, 24 Mar 2017 14:18:52 +0800</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/about/</guid>
+      <description>关于我  2005 在老师的公司里面做自动化开发 2008 和同学一起瞎闹腾 2009 闹腾够了(钱败光了)安稳做开发 2010 开发@akazam 2011 开发@新宇软件 2012 开发@益进软件 2017 Devops@百望贸宜  以前自己有一个博客，本来是备份好了的，可是作死的是忘记备份数据库，仅仅只是备份了一个Wordpress。结果可想而知啥都木有了，不过没有了也罢，权当重新开始，既然github.com提供免费的空间可以发布静态网页，那正和我的胃口。特别是发现了Hugo之后发现可以把注意力完全放在内容上，当真是求之不得，并且最开心的是它是支持markdown格式的。所以立马开始捣鼓起来了。
+电子邮箱: rurounikexin@gmail.com
+喜欢: 动漫 游戏 各种电子设备 高达
+不喜欢: 抽烟 下雨天
+正在学 puppet terraform golang python jenkins</description>
+    </item>
+    
+  </channel>
+</rss>

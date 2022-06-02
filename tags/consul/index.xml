@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Consul on Dawn Zeng&#39;s Blog</title>
+    <link>https://blog.lkjxblog.tech/tags/consul/</link>
+    <description>Recent content in Consul on Dawn Zeng&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.lkjxblog.tech/tags/consul/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搭建Nomad服务与Consul集成</title>
+      <link>https://blog.lkjxblog.tech/post/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/post/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;Nomad是HashCorp的一款开源的编排工具,同样身为HashCorp的服务发现工具consul能够很好的与Nomad进行集成，2个轻量级别的工具可以很好的支持微服务的快速发布。这里会简单的说一下nomad的集群以及consul集群的集成
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

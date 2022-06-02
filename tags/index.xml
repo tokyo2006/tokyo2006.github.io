@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Dawn Zeng&#39;s Blog</title>
+    <link>https://blog.lkjxblog.tech/tags/</link>
+    <description>Recent content in Tags on Dawn Zeng&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.lkjxblog.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Consul</title>
+      <link>https://blog.lkjxblog.tech/tags/consul/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/consul/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>https://blog.lkjxblog.tech/tags/devops/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nomad</title>
+      <link>https://blog.lkjxblog.tech/tags/nomad/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/nomad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.lkjxblog.tech/tags/docker/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://blog.lkjxblog.tech/tags/kubernetes/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://blog.lkjxblog.tech/tags/linux/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://blog.lkjxblog.tech/tags/shell/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xinta</title>
+      <link>https://blog.lkjxblog.tech/tags/xinta/</link>
+      <pubDate>Fri, 24 Mar 2017 14:18:52 +0800</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/xinta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://blog.lkjxblog.tech/tags/mysql/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.tech/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
