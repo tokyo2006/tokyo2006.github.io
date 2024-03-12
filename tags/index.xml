@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/</link>
+    <description>Recent content in Tags on Chen Zeng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.lkjxblog.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI</title>
+      <link>https://blog.lkjxblog.site/tags/ai/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AutoGen</title>
+      <link>https://blog.lkjxblog.site/tags/autogen/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/autogen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LM Studio</title>
+      <link>https://blog.lkjxblog.site/tags/lm-studio/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/lm-studio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://blog.lkjxblog.site/tags/devops/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://blog.lkjxblog.site/tags/kubernetes/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Datadog</title>
+      <link>https://blog.lkjxblog.site/tags/datadog/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/datadog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>https://blog.lkjxblog.site/tags/grafana/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lifecycle</title>
+      <link>https://blog.lkjxblog.site/tags/lifecycle/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/lifecycle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pageduty</title>
+      <link>https://blog.lkjxblog.site/tags/pageduty/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/pageduty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Promethus</title>
+      <link>https://blog.lkjxblog.site/tags/promethus/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/promethus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sentry</title>
+      <link>https://blog.lkjxblog.site/tags/sentry/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/sentry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://blog.lkjxblog.site/tags/shell/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Splunk</title>
+      <link>https://blog.lkjxblog.site/tags/splunk/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/splunk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>buildkite</title>
+      <link>https://blog.lkjxblog.site/tags/buildkite/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/buildkite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github Actions</title>
+      <link>https://blog.lkjxblog.site/tags/github-actions/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>https://blog.lkjxblog.site/tags/jenkins/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI Building</title>
+      <link>https://blog.lkjxblog.site/tags/ci-building/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/ci-building/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI Testing</title>
+      <link>https://blog.lkjxblog.site/tags/ci-testing/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/ci-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker registory</title>
+      <link>https://blog.lkjxblog.site/tags/docker-registory/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/docker-registory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github action</title>
+      <link>https://blog.lkjxblog.site/tags/github-action/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/github-action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github package</title>
+      <link>https://blog.lkjxblog.site/tags/github-package/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/github-package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jfrog</title>
+      <link>https://blog.lkjxblog.site/tags/jfrog/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/jfrog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nexus</title>
+      <link>https://blog.lkjxblog.site/tags/nexus/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/nexus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sourcecode</title>
+      <link>https://blog.lkjxblog.site/tags/sourcecode/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/sourcecode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://blog.lkjxblog.site/tags/git/</link>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Consul</title>
+      <link>https://blog.lkjxblog.site/tags/consul/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/consul/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nomad</title>
+      <link>https://blog.lkjxblog.site/tags/nomad/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/nomad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.lkjxblog.site/tags/docker/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://blog.lkjxblog.site/tags/linux/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xinta</title>
+      <link>https://blog.lkjxblog.site/tags/xinta/</link>
+      <pubDate>Fri, 24 Mar 2017 14:18:52 +0800</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/xinta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://blog.lkjxblog.site/tags/mysql/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>charybdis</title>
+      <link>https://blog.lkjxblog.site/tags/charybdis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/charybdis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qmk</title>
+      <link>https://blog.lkjxblog.site/tags/qmk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/qmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redox</title>
+      <link>https://blog.lkjxblog.site/tags/redox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/redox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>split keyboard</title>
+      <link>https://blog.lkjxblog.site/tags/split-keyboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/split-keyboard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>totem</title>
+      <link>https://blog.lkjxblog.site/tags/totem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/totem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trackball</title>
+      <link>https://blog.lkjxblog.site/tags/trackball/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/trackball/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zmk</title>
+      <link>https://blog.lkjxblog.site/tags/zmk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/tags/zmk/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
