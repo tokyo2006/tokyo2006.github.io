@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xinta on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/xinta/</link>
+    <description>Recent content in xinta on Chen Zeng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Mar 2017 14:18:52 +0800</lastBuildDate><atom:link href="https://blog.lkjxblog.site/tags/xinta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于</title>
+      <link>https://blog.lkjxblog.site/about/</link>
+      <pubDate>Fri, 24 Mar 2017 14:18:52 +0800</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/about/</guid>
+      <description>关于我 2005 在老师的公司里面做自动化开发 2008 和同学一起瞎闹腾 2009 闹腾够了(钱败光了)安稳做开发 2010 开发@akazam 2011 开发@新宇软件 2012 开发@益进软件 2017</description>
+    </item>
+    
+  </channel>
+</rss>
