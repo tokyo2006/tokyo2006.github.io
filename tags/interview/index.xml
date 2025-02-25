@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>interview on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/interview/</link>
+    <description>Recent content in interview on Chen Zeng的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.lkjxblog.site/tags/interview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Summary of Interviews</title>
+      <link>https://blog.lkjxblog.site/interview_en/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/interview_en/</guid>
+      <description>Problem Record Question 1: How to determine the rules that need to be set in WAF? Answer: Determining the rules that need to be set in a Web Application Firewall (WAF) typically involves considering the following aspects:
+Commonly used methods include:
+Security Requirements: Based on the organization&amp;rsquo;s security policies and business needs, identify which web applications and resources require protection. Compliance: Ensure that WAF rules comply with relevant security standards and regulations.</description>
+    </item>
+    
+    <item>
+      <title>面试总结</title>
+      <link>https://blog.lkjxblog.site/interview/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.lkjxblog.site/interview/</guid>
+      <description>问题记录 问题1: 如何确定WAF中需要设置的规则？ 答案: 确定WAF（Web应用防火墙）中需要设置的规则通常需要考虑以下几个方面： 通常设置方式包</description>
+    </item>
+    
+  </channel>
+</rss>
