@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="运维眼中的CI流程">
+<meta name="keywords" content="devops, lifecycle, shell, jenkins, buildkite, Github Actions, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="运维眼中的CI流程"/>
+<meta property="og:title" content="运维眼中的CI流程 : blog.lkjxblog.site"/>
+<meta property="og:site_name" content="blog.lkjxblog.site is Chen Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84ci%E6%B5%81%E7%A8%8B/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25"/>
+<meta property="article:modified_time" content="2023-11-25"/>
+
+
+
+<meta property="article:tag" content="devops">
+<meta property="article:tag" content="lifecycle">
+<meta property="article:tag" content="shell">
+<meta property="article:tag" content="jenkins">
+<meta property="article:tag" content="buildkite">
+<meta property="article:tag" content="Github Actions">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="运维眼中的CI流程 : blog.lkjxblog.site">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="运维眼中的CI流程">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.site">
+
+
+
+    <base href="https://blog.lkjxblog.site/">
+    <title>运维眼中的CI流程 - blog.lkjxblog.site</title>
+    <link rel="canonical" href="https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84ci%E6%B5%81%E7%A8%8B/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.site//css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.site//favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.site//apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.site//" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Chen Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.site//">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> project </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//talks/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=%e8%bf%90%e7%bb%b4%e7%9c%bc%e4%b8%ad%e7%9a%84CI%e6%b5%81%e7%a8%8b-https%3a%2f%2fblog.lkjxblog.site%2f%25E8%25BF%2590%25E7%25BB%25B4%25E7%259C%25BC%25E4%25B8%25AD%25E7%259A%2584ci%25E6%25B5%2581%25E7%25A8%258B%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.site%2f%25E8%25BF%2590%25E7%25BB%25B4%25E7%259C%25BC%25E4%25B8%25AD%25E7%259A%2584ci%25E6%25B5%2581%25E7%25A8%258B%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E8%25BF%2590%25E7%25BB%25B4%25E7%259C%25BC%25E4%25B8%25AD%25E7%259A%2584ci%25E6%25B5%2581%25E7%25A8%258B%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.site%2f%25E8%25BF%2590%25E7%25BB%25B4%25E7%259C%25BC%25E4%25B8%25AD%25E7%259A%2584ci%25E6%25B5%2581%25E7%25A8%258B%2f&title=%e8%bf%90%e7%bb%b4%e7%9c%bc%e4%b8%ad%e7%9a%84CI%e6%b5%81%e7%a8%8b&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E8%25BF%2590%25E7%25BB%25B4%25E7%259C%25BC%25E4%25B8%25AD%25E7%259A%2584ci%25E6%25B5%2581%25E7%25A8%258B%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E8%25BF%2590%25E7%25BB%25B4%25E7%259C%25BC%25E4%25B8%25AD%25E7%259A%2584ci%25E6%25B5%2581%25E7%25A8%258B%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">运维眼中的CI流程</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>软件开发中的测试构建就是一个不断循环的过程，软件就是在这个过程中不断地迭代更新，这里就会涉及一个软件持续构建的流程，就是我们通常说的CI(Continus Intergration)持续集成。
+</code></pre>
+<p>在软件开发过程中，良好的CI/CD流程是提高团队协作效率的重要因素。通过使用一些集成工具，如Jenkins、Github Action和Buildkite，我们可以实现强大的功能，并为公司提供一个高效的CICD平台。虽然这些工具在实现方式上有所不同，但对于流程来说，它们的作用是相似的。然而，实施一个成功的CI/CD流程需要团队成员具备良好的代码验证和测试意识。本文将讨论开发新功能和BUG修复、Hotfix和产品回滚等不同情况下的CI/CD流程，并探讨它们在提高团队协作效率方面的作用。</p>
+<h2 id="开发新功能以及bug修复">开发新功能以及BUG修复</h2>
+<p><img src="https://res.cloudinary.com/xinta/image/upload/v1701831788/blogimage/ci_new_feature.png" alt="ci_new_feature_pipeline"></p>
+<ul>
+<li>开发提交PR以后会触发验证和单元测试的JOB。</li>
+<li>验证成功并通过测试的分支还需要团队成员的检查并合并到开发分支中。</li>
+<li>开发分支的变化会触发构建并上传构建品到仓库。</li>
+<li>测试环境会部署新的构建产品并执行E2E测试。</li>
+<li>通过集成测试后整个CI流程就结束了（接下来的就是CI流程了）。</li>
+</ul>
+<p>不同的公司可能在CI/CD流程中有不同的变体，但总体上都应该遵循验证、测试、构建和集成测试的基本流程。上述图示了两种不同情况的简化示例。</p>
+<h2 id="hotfix">Hotfix</h2>
+<p>对于Hotfix（紧急修复）情况，我们可以采用以下流程：</p>
+<ul>
+<li>从主分支签出hotfix分支，并提交PR。</li>
+<li>触发验证和单元测试的JOB。</li>
+<li>验证成功并通过测试的分支需要团队成员进行检查，并合并到开发分支中。</li>
+<li>开发分支的变化会触发构建，并将构建产物上传到仓库。</li>
+<li>测试环境将部署新的构建产品，并进行端到端（E2E）测试。</li>
+<li>测试成功后，从hotfix分支向主分支提交新的PR，并忽略所有测试，直接合并到主分支中。</li>
+</ul>
+<h2 id="产品回滚">产品回滚</h2>
+<p>— 在需要回滚产品的情况下，我们可以快速部署回滚的PR到产线中，而不需要参与任何测试流程。</p>
+<h2 id="结论">结论</h2>
+<p>良好的CI/CD流程是软件开发中不可或缺的一部分，它能够显著提高团队的协作效率。通过使用适合公司需求的集成工具，并遵循验证、测试、构建和集成测试的基本流程，团队可以更加高效地开发新功能、修复BUG，并快速部署产品。然而，成功实施CI/CD流程需要团队成员具备良好的代码验证和测试意识。只有在全员积极参与和遵循流程的前提下，CI/CD才能发挥其最大的价值，为团队带来持续的增长和成功。</p>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Sat Nov 25, 2023 </h4>
+		<h5 id="wc"> 1000 字数 </h5>
+		<h5 id="readtime"> 需要阅读 2 分钟 </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.site//topics/devops">Devops</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/devops">devops</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/lifecycle">lifecycle</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/shell">shell</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/jenkins">jenkins</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/buildkite">buildkite</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/github-actions">Github Actions</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%9E%84%E5%BB%BA/"><i class="icon-nixon-arrow-left"></i> 运维眼中的源代码测试与构建</a><br>
+	</section>
+	<section id="next">
+		&nbsp;<a class="next" href="https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84cd%E6%B5%81%E7%A8%8B/">运维眼中的CD流程 <i class="icon-nixon-arrow-right"></i></a>
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="983">
+<meta itemprop="datePublished" content="2023-11-25">
+<meta itemprop="url" content="https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84ci%E6%B5%81%E7%A8%8B/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        branch="master"
+        theme="preferred-color-scheme"
+        comment-order="desc"
+        crossorigin="anonymous"
+        label="comment"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2025
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chen Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.site/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+
