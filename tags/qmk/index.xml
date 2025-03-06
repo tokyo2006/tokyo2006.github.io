@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qmk on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/qmk/</link>
+    <description>Recent content in Qmk on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/tags/qmk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自己做的键盘布局展示</title>
+      <link>https://blog.lkjxblog.site/project/split_keyboard/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/project/split_keyboard/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;自从去年入坑了分体键盘，一直都会做一些自己感兴趣的键盘玩，以后会把键盘的所有布局放在这里做一个记录。方便以后查看，不用再到仓库里面一个一个去看了&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

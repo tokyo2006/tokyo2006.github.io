@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/topics/development/</link>
+    <description>Recent content in Development on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/topics/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8st:k8s的命令行小工具</title>
+      <link>https://blog.lkjxblog.site/project/k8st/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/project/k8st/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;k8st 是一个简化 Kubernetes 服务操作的命令行工具。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

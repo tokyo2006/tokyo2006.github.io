@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI Testing on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/ci-testing/</link>
+    <description>Recent content in CI Testing on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/tags/ci-testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>运维眼中的源代码测试与构建</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%9E%84%E5%BB%BA/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%9E%84%E5%BB%BA/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在上一篇文章中已经概述了软件服务源代码的版本管理，那么接下来就是软件服务的构建与测试了，它决定了软件的稳定性和健壮性。这篇文章会谈谈我对软件服务测试构建的看法&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>
