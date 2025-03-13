@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="kubernetes的作业调度">
+<meta name="keywords" content="devops, kubernetes, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="kubernetes的作业调度"/>
+<meta property="og:title" content="kubernetes的作业调度 : blog.lkjxblog.site"/>
+<meta property="og:site_name" content="blog.lkjxblog.site is Chen Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-28"/>
+<meta property="article:modified_time" content="2023-12-28"/>
+
+
+
+<meta property="article:tag" content="devops">
+<meta property="article:tag" content="kubernetes">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="kubernetes的作业调度 : blog.lkjxblog.site">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="kubernetes的作业调度">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.site">
+
+
+
+    <base href="https://blog.lkjxblog.site/">
+    <title>kubernetes的作业调度 - blog.lkjxblog.site</title>
+    <link rel="canonical" href="https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.site//css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.site//favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.site//apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.site//" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Chen Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.site//">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> project </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//talks/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=kubernetes%e7%9a%84%e4%bd%9c%e4%b8%9a%e8%b0%83%e5%ba%a6-https%3a%2f%2fblog.lkjxblog.site%2fkubernetes%25E7%259A%2584%25E4%25BD%259C%25E4%25B8%259A%25E8%25B0%2583%25E5%25BA%25A6%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.site%2fkubernetes%25E7%259A%2584%25E4%25BD%259C%25E4%25B8%259A%25E8%25B0%2583%25E5%25BA%25A6%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.site%2fkubernetes%25E7%259A%2584%25E4%25BD%259C%25E4%25B8%259A%25E8%25B0%2583%25E5%25BA%25A6%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.site%2fkubernetes%25E7%259A%2584%25E4%25BD%259C%25E4%25B8%259A%25E8%25B0%2583%25E5%25BA%25A6%2f&title=kubernetes%e7%9a%84%e4%bd%9c%e4%b8%9a%e8%b0%83%e5%ba%a6&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.site%2fkubernetes%25E7%259A%2584%25E4%25BD%259C%25E4%25B8%259A%25E8%25B0%2583%25E5%25BA%25A6%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.site%2fkubernetes%25E7%259A%2584%25E4%25BD%259C%25E4%25B8%259A%25E8%25B0%2583%25E5%25BA%25A6%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">kubernetes的作业调度</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>在kubernetes中pod如何分配到节点中，都是由kube-scheduler组件来完成的，它通过不同的策略定义和规则来分配pod应该如何部署到期望的节点上。
+</code></pre>
+<h2 id="kube-scheduler调度的原理">kube-scheduler调度的原理</h2>
+<p>kube-scheduler会先在当前集群的所有节点里面通过调度算法（Predicate）选出所有适合运行被调度pod的节点。在所有的合适节点上再根据调度算法（Priority）挑选出最符合条件的节点来部署这个pod。</p>
+<p>kube-scheduler实际上是通过2个循环来实现pod的调度工作的，下面是示意图：</p>
+<p><img src="https://res.cloudinary.com/xinta/image/upload/v1703741725/blogimage/k8s_scheduler_cycle.png" alt="kube_scheduler"></p>
+<h3 id="informer-path">Informer Path</h3>
+<p>这个控制循环会启动各种informer来监听（Watch）Etcd中的Pod,Node,Service等与调度相关的API对象的变化。比如一个新的pod被创建后，调度器就会通过pod informer的handler将这个新创建的pod添加进调度队列（默认情况下，kubernetes的调度队列是Prioity Queue（优先级队列）。
+从上图可以看到调度器还会对调度器缓存（Schedule Cache）进行更新。使用缓存的目的就是为了提高断言（Predicate）和优先级（Priority）调度算法的执行效率。</p>
+<h3 id="scheduling-path">Scheduling Path</h3>
+<p>这个控制循环是调度器负责pod调度的主循环，它循环的从调度队列里面拿出一个pod,然后调用断言（Predicate）算法对所有节点进行“过滤”从而获取可以运行这个pod的宿主机列表。节点信息则是从Scheduler Cache里面获取的。然后调度器会再调用优先级（Priority）算法为所有符合条件的节点打分，分数的范围是从0—10，得分最高的节点将作为此次调度的结果。</p>
+<p>调度器此时会把节点和pod进行绑定（Bind），其实就是修改pod对象的nodeName的值，但是为了不在关键调度路径里远程访问APIServer,kubernetes的默认调度器在绑定阶段只会更新Scheduler Cache里的pod和node的信息。这种更新api对象缓存的方式在kubernetes中叫assume.在assume后，调度器就会创建一个goroutine来异步地向APIServer发起更新pod的请求，来完成真正的绑定（Bind）操作。就算这次同步失败了，等Scheduler Cache同步之后一切就会恢复正常。</p>
+<p>当这个新的pod完成了调度需要在某个节点上运行起来之前，此节点上的kubelet还会对此pod进行二次验证来确定此pod是否能运行在改节点上，这步操作叫做Admit操作。</p>
+<h3 id="调度器的扩展">调度器的扩展</h3>
+<p>扩展的图片就引用官网的了
+<img src="https://kubernetes.io/images/docs/scheduling-framework-extensions.png" alt="extensions_framework"></p>
+<p>在调度器生命周期的各个关键点，为用户暴露出可以进行扩展和实现的接口，从而实现用户自定义调度器的能力。
+不过这些可插拔的逻辑都是基于Go语言的插件机制，所以你必须在编译的时候就要把需要的插件加进去一起编译。</p>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Thu Dec 28, 2023 </h4>
+		<h5 id="wc"> 1200 字数 </h5>
+		<h5 id="readtime"> 需要阅读 3 分钟 </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.site//topics/devops">Devops</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/devops">devops</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/kubernetes">kubernetes</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.site/kubernetes%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/"><i class="icon-nixon-arrow-left"></i> kubernetes的资源管理</a><br>
+	</section>
+	<section id="next">
+		&nbsp;<a class="next" href="https://blog.lkjxblog.site/%E5%B0%9D%E8%AF%95autogen%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ai%E5%9B%A2%E9%98%9F/">尝试AutoGen创建自己的AI团队 <i class="icon-nixon-arrow-right"></i></a>
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="1169">
+<meta itemprop="datePublished" content="2023-12-28">
+<meta itemprop="url" content="https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        branch="master"
+        theme="preferred-color-scheme"
+        comment-order="desc"
+        crossorigin="anonymous"
+        label="comment"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2025
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chen Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.site/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+

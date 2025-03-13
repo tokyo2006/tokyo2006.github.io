@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="本文将会介绍Promethus的持久化存储解决方案">
+<meta name="keywords" content="Monitoring, Devops, Promethus, Mimir, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="本文将会介绍Promethus的持久化存储解决方案"/>
+<meta property="og:title" content="Promethus监控数据持久化存储解决方案:Mimir : blog.lkjxblog.site"/>
+<meta property="og:site_name" content="blog.lkjxblog.site is Chen Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.site/%E6%9C%AC%E6%96%87%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8Dpromethus%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-04"/>
+<meta property="article:modified_time" content="2025-03-04"/>
+
+
+
+<meta property="article:tag" content="Monitoring">
+<meta property="article:tag" content="Devops">
+<meta property="article:tag" content="Promethus">
+<meta property="article:tag" content="Mimir">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="Promethus监控数据持久化存储解决方案:Mimir : blog.lkjxblog.site">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="本文将会介绍Promethus的持久化存储解决方案">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.site">
+
+
+
+    <base href="https://blog.lkjxblog.site/">
+    <title>Promethus监控数据持久化存储解决方案:Mimir - blog.lkjxblog.site</title>
+    <link rel="canonical" href="https://blog.lkjxblog.site/%E6%9C%AC%E6%96%87%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8Dpromethus%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.site//css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.site//favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.site//apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.site//" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Chen Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.site//">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> project </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//talks/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=Promethus%e7%9b%91%e6%8e%a7%e6%95%b0%e6%8d%ae%e6%8c%81%e4%b9%85%e5%8c%96%e5%ad%98%e5%82%a8%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%3aMimir-https%3a%2f%2fblog.lkjxblog.site%2f%25E6%259C%25AC%25E6%2596%2587%25E5%25B0%2586%25E4%25BC%259A%25E4%25BB%258B%25E7%25BB%258Dpromethus%25E7%259A%2584%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.site%2f%25E6%259C%25AC%25E6%2596%2587%25E5%25B0%2586%25E4%25BC%259A%25E4%25BB%258B%25E7%25BB%258Dpromethus%25E7%259A%2584%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E6%259C%25AC%25E6%2596%2587%25E5%25B0%2586%25E4%25BC%259A%25E4%25BB%258B%25E7%25BB%258Dpromethus%25E7%259A%2584%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.site%2f%25E6%259C%25AC%25E6%2596%2587%25E5%25B0%2586%25E4%25BC%259A%25E4%25BB%258B%25E7%25BB%258Dpromethus%25E7%259A%2584%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588%2f&title=Promethus%e7%9b%91%e6%8e%a7%e6%95%b0%e6%8d%ae%e6%8c%81%e4%b9%85%e5%8c%96%e5%ad%98%e5%82%a8%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%3aMimir&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E6%259C%25AC%25E6%2596%2587%25E5%25B0%2586%25E4%25BC%259A%25E4%25BB%258B%25E7%25BB%258Dpromethus%25E7%259A%2584%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E6%259C%25AC%25E6%2596%2587%25E5%25B0%2586%25E4%25BC%259A%25E4%25BB%258B%25E7%25BB%258Dpromethus%25E7%259A%2584%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">Promethus监控数据持久化存储解决方案:Mimir</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>Prometheus是一个开源的监控系统和时间序列数据库。为了确保监控数据的持久化存储，Prometheus提供了多种解决方案。其中，Mimir是一个分布式时间序列数据库，专门用于存储和查询大规模的时间序列数据。通过将Prometheus与Mimir集成，可以实现监控数据的持久化存储和高效查询。
+</code></pre>
+<h2 id="持久化方案">持久化方案</h2>
+<p>目前市面上Promethus的持久化方案有以下几种：</p>
+<ol>
+<li><strong>Thanos</strong>：Thanos是为了解决Prometheus的长期存储和高可用性问题而设计的。它提供了全局的查询视图，可以将数据存储到对象存储中，比如S3，这样数据可以长期保留。</li>
+<li><strong>Cortex</strong>：Cortex是基于Prometheus的横向扩展方案，主要用于多租户的监控场景。它支持将Prometheus的数据远程写入到Cortex，然后进行分布式存储和处理。</li>
+<li><strong>Mimir</strong>：Mimir是Cortex的升级版由Grafana Labs开发，可以实现Prometheus数据的持久化存储和高效查询。</li>
+</ol>
+<h2 id="三种方案对比">三种方案对比</h2>
+<table>
+  <thead>
+      <tr>
+          <th>工具名称</th>
+          <th>优点</th>
+          <th>缺点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Thanos</strong></td>
+          <td><!-- raw HTML omitted --><!-- raw HTML omitted -->兼容 Prometheus 生态，无缝集成<!-- raw HTML omitted --><!-- raw HTML omitted -->支持长期存储（对象存储，成本低）<!-- raw HTML omitted --><!-- raw HTML omitted -->提供全局聚合查询视图<!-- raw HTML omitted --><!-- raw HTML omitted -->支持数据降采样与压缩<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+          <td><!-- raw HTML omitted --><!-- raw HTML omitted -->查询性能依赖对象存储性能<!-- raw HTML omitted --><!-- raw HTML omitted -->组件较多，部署复杂度中等<!-- raw HTML omitted --><!-- raw HTML omitted -->缺乏原生多租户支持<!-- raw HTML omitted --><!-- raw HTML omitted -->仅适用于 Prometheus 数据源<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+      </tr>
+      <tr>
+          <td><strong>Cortex</strong></td>
+          <td><!-- raw HTML omitted --><!-- raw HTML omitted -->水平扩展能力强，支持海量指标写入<!-- raw HTML omitted --><!-- raw HTML omitted -->原生多租户隔离，适合多团队场景<!-- raw HTML omitted --><!-- raw HTML omitted -->完全兼容 PromQL<!-- raw HTML omitted --><!-- raw HTML omitted -->数据分片存储，灵活性高<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+          <td><!-- raw HTML omitted --><!-- raw HTML omitted -->架构复杂，运维成本高<!-- raw HTML omitted --><!-- raw HTML omitted -->查询性能中等，响应延迟较高<!-- raw HTML omitted --><!-- raw HTML omitted -->存储效率低于 Mimir<!-- raw HTML omitted --><!-- raw HTML omitted -->需手动调优分布式组件<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+      </tr>
+      <tr>
+          <td><strong>Mimir</strong></td>
+          <td><!-- raw HTML omitted --><!-- raw HTML omitted -->超高性能（查询速度比 Cortex 快 10 倍+）<!-- raw HTML omitted --><!-- raw HTML omitted -->存储效率高（列式压缩，成本更低）<!-- raw HTML omitted --><!-- raw HTML omitted -->自动化运维，部署复杂度低<!-- raw HTML omitted --><!-- raw HTML omitted -->原生多租户与细粒度管控<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+          <td><!-- raw HTML omitted --><!-- raw HTML omitted -->新项目成熟度相对较低<!-- raw HTML omitted --><!-- raw HTML omitted -->超大规模场景资源消耗较高<!-- raw HTML omitted --><!-- raw HTML omitted -->对中小规模场景可能“杀鸡用牛刀”<!-- raw HTML omitted --><!-- raw HTML omitted -->依赖 Grafana Labs 商业支持<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="为什么选择mimir作为prometheus的替代方案">为什么选择Mimir作为Prometheus的替代方案？</h2>
+<ol>
+<li><strong>超高性能</strong>：
+Mimir 提供了比Cortex快十倍以上的查询速度，这意味着更快的数据检索和实时性更强的监控反馈。对于需要快速响应的应用场景，这是一个显著的优势。</li>
+<li><strong>高效的存储管理</strong>：
+Mimir 使用列式压缩技术来存储数据，这不仅降低了存储成本，还提高了读取效率。相比传统的行式存储，列存方式对分析型查询更为友好，尤其适合处理大规模时间序列数据。</li>
+<li><strong>简化运维</strong>：
+相较于其他解决方案如Thanos或Cortex, Mimir提供了更简化的部署流程以及更低的运维复杂度。自动化运维特性使得维护更加容易，减少了人工干预的需求。</li>
+<li><strong>原生多租户支持与细粒度控制</strong>：
+Mimir 内置了对多租户的支持，并允许进行细粒度的权限管理和资源隔离，这对于那些在同一平台上有多个团队或者项目的组织来说非常重要。它能够确保不同用户组之间的安全性和独立性。</li>
+<li><strong>高可用性和可扩展性</strong>：
+Mimir 设计之初就考虑到了高可用性和水平扩展的能力，可以轻松应对日益增长的数据量和并发访问压力。其分布式架构保证了即使部分节点故障也不会影响整体服务稳定性。</li>
+<li><strong>商业支持和服务</strong>：
+由Grafana Labs开发并维护，官方提供的技术支持和持续更新为使用Mimir的企业级用户提供了一定程度上的保障。此外，还有活跃社区的支持帮助解决遇到的问题。</li>
+</ol>
+<h2 id="mimir-架构图">Mimir 架构图</h2>
+<p>Mimir由一下几个核心组件组成，他们协同工作，共同实现大规模日志数据的收集、存储和查询。</p>
+<p>下图是Mimir的架构图：
+<img src="https://res.cloudinary.com/xinta/image/upload/v1741145300/blogimage/mimir.png" alt="Mimir 架构图"></p>
+<p>我们通过以下两个方面来阐述Mimir的架构设计：</p>
+<h3 id="数据存储流程">数据存储流程</h3>
+<ol>
+<li>Promethus通过将数据发送给Distributor（分发器）组件</li>
+<li>Ingester（摄取器）接收来自 Distributor（分发器）的传入样本。接收到的样本既保存在内存中，也写入预写日志 (WAL)。如果 Ingester（摄取器）突然终止，WAL 可以帮助恢复内存中的序列。TSDB在首次收到样本后，在每个 Ingester（摄取器）中延迟创建。当创建新的 TSDB 块时，内存中的样本会定期刷新到磁盘，并且 WAL 会被截断。默认情况下，这每两小时发生一次。每个新创建的块都会上传到长期存储（S3,OSS,Cloud Storage），并保留在 Ingester（摄取器）中，直至过期。</li>
+<li>Compactor（压缩器）将来自多个 Ingester（摄取器）的块合并到一个块中，并删除重复的样本来提高查询性能并减少长期存储使用量。</li>
+</ol>
+<h3 id="数据读取流程">数据读取流程</h3>
+<ol>
+<li>Grafana用户通过Query-frontend组件发起查询的请求，Query-frontend（查询前端）将较长时间范围的查询拆分为多个较小的查询。
+<ol>
+<li>Query-frontend（查询前端）检查结果缓存。如果查询结果已缓存，则 Query-frontend（查询前端）返回缓存的结果。</li>
+<li>无法从结果缓存回答的查询将放入 Query-frontend（查询前端）内的内存队列中。</li>
+</ol>
+</li>
+<li>Querier（查询器）充当 worker（工作器），从队列中拉取查询。
+Querier（查询器）连接到 Store-gateway（存储网关）和 Ingester（摄取器），以获取执行查询所需的所有数据。</li>
+<li>Querier（查询器）执行查询后，会将结果返回给 Query-frontend（查询前端）进行聚合。然后，Query-frontend（查询前端）将聚合的结果返回给客户端。</li>
+</ol>
+<h3 id="告警规则-可选">告警规则 （可选）</h3>
+<ol>
+<li>Ruler 是一个可选组件，用于评估记录和告警规则中定义的 PromQL 表达式。每个租户都有一组记录和告警规则，并且可以将这些规则分组到命名空间中。</li>
+<li>Ruler 将规则评估委派给 query-frontend。启用后，Ruler 利用 query-frontend 采用的所有查询加速技术，例如 查询分片。要启用远程操作模式。</li>
+<li>Ruler 会将任何 FIRING (firing) 告警通知 Alertmanager。</li>
+</ol>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Tue Mar 4, 2025 </h4>
+		<h5 id="wc"> 2300 字数 </h5>
+		<h5 id="readtime"> 需要阅读 5 分钟 </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.site//topics/prometheus">Prometheus</a> </li>
+	
+		<li><a href="https://blog.lkjxblog.site//topics/mimir">Mimir</a> </li>
+	
+		<li><a href="https://blog.lkjxblog.site//topics/data-persistence">Data Persistence</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/monitoring">Monitoring</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/devops">Devops</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/promethus">Promethus</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/mimir">Mimir</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.site/%E4%BD%BF%E7%94%A8argocd%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8/"><i class="icon-nixon-arrow-left"></i> 使用ArgoCD部署应用</a><br>
+	</section>
+	<section id="next">
+		&nbsp;<a class="next" href="https://blog.lkjxblog.site/project/k8st/">k8st:k8s的命令行小工具 <i class="icon-nixon-arrow-right"></i></a>
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="2237">
+<meta itemprop="datePublished" content="2025-03-04">
+<meta itemprop="url" content="https://blog.lkjxblog.site/%E6%9C%AC%E6%96%87%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8Dpromethus%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        branch="master"
+        theme="preferred-color-scheme"
+        comment-order="desc"
+        crossorigin="anonymous"
+        label="comment"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2025
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chen Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.site/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+
