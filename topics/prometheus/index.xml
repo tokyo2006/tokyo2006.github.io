@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prometheus on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/topics/prometheus/</link>
+    <description>Recent content in Prometheus on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/topics/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Promethus监控数据持久化存储解决方案:Mimir</title>
+      <link>https://blog.lkjxblog.site/%E6%9C%AC%E6%96%87%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8Dpromethus%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E6%9C%AC%E6%96%87%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8Dpromethus%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;Prometheus是一个开源的监控系统和时间序列数据库。为了确保监控数据的持久化存储，Prometheus提供了多种解决方案。其中，Mimir是一个分布式时间序列数据库，专门用于存储和查询大规模的时间序列数据。通过将Prometheus与Mimir集成，可以实现监控数据的持久化存储和高效查询。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

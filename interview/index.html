@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="这里会记录所有面试中遇到的问题">
+<meta name="keywords" content="interview, devops, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="这里会记录所有面试中遇到的问题"/>
+<meta property="og:title" content="面试总结 : blog.lkjxblog.site"/>
+<meta property="og:site_name" content="blog.lkjxblog.site is Chen Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.site/interview/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-03"/>
+<meta property="article:modified_time" content="2025-04-03"/>
+
+
+
+<meta property="article:tag" content="interview">
+<meta property="article:tag" content="devops">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="面试总结 : blog.lkjxblog.site">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="这里会记录所有面试中遇到的问题">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.site">
+
+
+
+    <base href="https://blog.lkjxblog.site/">
+    <title>面试总结 - blog.lkjxblog.site</title>
+    <link rel="canonical" href="https://blog.lkjxblog.site/interview/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.site//css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.site//favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.site//apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.site//" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Chen Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.site//">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> project </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//talks/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=%e9%9d%a2%e8%af%95%e6%80%bb%e7%bb%93-https%3a%2f%2fblog.lkjxblog.site%2finterview%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.site%2finterview%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.site%2finterview%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.site%2finterview%2f&title=%e9%9d%a2%e8%af%95%e6%80%bb%e7%bb%93&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.site%2finterview%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.site%2finterview%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">面试总结</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>我会在这里更新所有的面试问题
+</code></pre>
+<h2 id="问题记录">问题记录</h2>
+<hr>
+<h2 id="问题1-如何确定waf中需要设置的规则">问题1: 如何确定WAF中需要设置的规则？</h2>
+<p><strong>答案:</strong> 确定WAF（Web应用防火墙）中需要设置的规则通常需要考虑以下几个方面：</p>
+<p>通常设置方式包括：</p>
+<ol>
+<li><strong>安全需求</strong>: 根据组织的安全策略和业务需求，确定需要保护的Web应用和资源。</li>
+<li><strong>合规性</strong>: 确保WAF的规则符合相关的安全标准和法规要求。</li>
+<li><strong>攻击检测</strong>: 了解常见的Web应用攻击类型，并设置相应的规则来检测和阻止这些攻击。</li>
+<li><strong>性能影响</strong>: 在设置规则时，需要考虑对Web应用性能的影响，避免过度限制合法流量。</li>
+</ol>
+<p>结合实际业务场景，可以进一步细化规则设置，例如：</p>
+<ul>
+<li>通过IP白名单或黑名单来限制对特定资源的访问。（以监控告警为数据来源）</li>
+<li>对SQL注入、跨站脚本（XSS）等常见攻击进行防护。</li>
+</ul>
+<hr>
+<h2 id="问题2-为什么要将以前的服务迁移到kubernetes上">问题2: 为什么要将以前的服务迁移到kubernetes上？</h2>
+<p><strong>答案:</strong> 将以前的服务迁移到Kubernetes上可以带来以下几个好处：</p>
+<ul>
+<li><strong>易于管理</strong>: 传统的服务需要配合配置管理，基础设施管理工具（如Ansible、Puppet等）来管理服务的配置和基础设施。而Kubernetes提供了一个统一的平台来管理应用和服务，简化了配置和管理过程。</li>
+<li><strong>高可用性</strong>: 通过部署多个Pod副本，Kubernetes可以确保服务在某个节点故障时仍然可用。</li>
+<li><strong>资源优化</strong>: Kubernetes能够更有效地利用集群资源，避免资源浪费。</li>
+<li><strong>易于扩展</strong>: 随着业务增长，可以轻松地向Kubernetes集群添加更多节点，以支持更多的应用实例。</li>
+</ul>
+<hr>
+<h2 id="问题3-argocd如何实现服务的自动化部署">问题3: ArgoCD如何实现服务的自动化部署？</h2>
+<p><strong>答案:</strong></p>
+<ol>
+<li>将所有服务的部署配置存放在一个monorepo中，并设置服务的扫描路径</li>
+<li>在设置的目录中添加各个服务的applicationset.yaml文件 里面定义服务的helm仓库地址以及相关属性仓库地址</li>
+<li>当服务代码发生变化时，通过CI流程触发服务的版本属性仓库，触发应用集的更新，ArgoCD会自动拉取最新的应用集配置并进行部署。</li>
+<li>当需要回滚的时候只需要提交一个PR去更新版本属性仓库的版本文件，就能快速的实现回滚。</li>
+</ol>
+<hr>
+<h3 id="问题4-如何在kubernetes中实现服务的水平扩展">问题4: 如何在Kubernetes中实现服务的水平扩展？</h3>
+<p><strong>答案:</strong> 在Kubernetes中实现服务的水平扩展通常通过使用Horizontal Pod Autoscaler（HPA）来完成。HPA会根据CPU使用率、内存使用率或其他自定义指标来自动调整Pod的数量，以确保服务能够处理预期的负载。</p>
+<hr>
+<h2 id="问题5-为什么每个账号都用独立的vpc">问题5: 为什么每个账号都用独立的VPC？</h2>
+<p><strong>答案:</strong> 使用独立的VPC（虚拟私有云）为每个账号提供了一系列显著的优势，这些优势有助于提升安全性、管理效率以及资源隔离性：</p>
+<ol>
+<li><strong>增强的安全性</strong> ：通过为每个账号分配独立的VPC，可以实现更细粒度的安全策略配置。例如，能够更好地控制入站和出站流量规则，限制不同系统之间的直接访问，减少潜在攻击面，并确保即使在一个VPC内发生安全事件也不会轻易蔓延到其他VPC。</li>
+<li><strong>网络隔离与边界清晰化：</strong> 独立的VPC使得各个业务单元或项目之间在网络层面形成严格的逻辑隔离，避免了不必要的交叉干扰。这对于大型组织尤其重要，因为它有助于保持各部门间职责分明，降低误操作风险。</li>
+<li><strong>简化管理和维护：</strong> 对于拥有多个部门或者项目的公司而言，在每个账号下创建单独的VPC可以让网络架构更加简洁明了。管理员可以根据具体需求定制每个VPC内的网络设置而不影响其他部分，从而简化整体IT基础设施的管理。</li>
+<li><strong>优化成本控制：</strong> 利用AWS等云服务提供商提供的计费模型，企业可以通过将不同的应用部署在各自的VPC中来追踪各个部门或项目的实际消耗情况，进而实现更精准的成本核算与预算规划。</li>
+<li><strong>提高灵活性和支持多环境部署：</strong> 当开发团队需要构建测试、预生产及生产等多个运行环境时，使用独立VPC可以方便地复制整个网络结构，快速搭建一致且隔离的运行环境，促进敏捷开发流程并加速产品迭代周期。</li>
+<li><strong>符合法规遵从要求：</strong> 某些行业可能对数据存储位置和传输路径有严格规定，而独立VPC可以帮助满足这些合规性需求，比如通过指定特定地理区域内的可用区部署关键工作负载，以确保符合当地法律法规。
+综上所述，采用独立VPC的做法不仅增强了系统的安全性与稳定性，同时也为企业提供了更高的运营灵活性和更好的资源管理手段。</li>
+</ol>
+<hr>
+<h2 id="问题6-vpc-peering-和-vpc-transit-gateway的区别是什么各自有什么优势">问题6： VPC Peering 和 VPC Transit Gateway的区别是什么？各自有什么优势？</h2>
+<p><strong>答案</strong> VPC Peering 和 VPC Transit 的区别及优势</p>
+<p>以下从 核心区别 和 优势对比 两个方面展开分析，结合 AWS 环境下的典型场景：</p>
+<hr>
+<h3 id="核心区别">核心区别</h3>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>VPC Peering</th>
+          <th>VPC Transit（以 AWS Transit Gateway 为例）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>工作原理</td>
+          <td>直接在两两 VPC 间建立点对点连接，私有 IP 通信。</td>
+          <td>通过中心化的网关（Transit Gateway）实现多 VPC 的星型连接，集中管理路由 。</td>
+      </tr>
+      <tr>
+          <td>互通能力</td>
+          <td>支持同区域或跨区域的两两 VPC 互通，但需手动配置路由  。</td>
+          <td>支持同区域或跨区域的多 VPC 互通，并可集成本地数据中心（通过 VPN 或 Direct Connect）。</td>
+      </tr>
+      <tr>
+          <td>扩展性</td>
+          <td>全网状架构（Full Mesh）下复杂度高，维护成本随 VPC 数量指数级增长 。</td>
+          <td>星型架构下扩展性强，新增 VPC 仅需与 Transit Gateway 连接，复杂度线性增长 。</td>
+      </tr>
+      <tr>
+          <td>IP 地址要求</td>
+          <td>连接的 VPC 间 CIDR 范围不能重叠 。</td>
+          <td>允许 VPC 间 CIDR 重叠（需通过路由策略隔离流量）。</td>
+      </tr>
+      <tr>
+          <td>混合云支持</td>
+          <td>不支持本地数据中心直接接入 。</td>
+          <td>支持通过 VPN 或专线与本地数据中心互通，实现混合云架构 。</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="各自优势">各自优势</h3>
+<ol>
+<li>VPC Peering 的优势
+<ul>
+<li>低延迟与高性能：通过私有 IP 直接通信，无需经过公网，延迟更低。</li>
+<li>配置简单：适用于少量 VPC 互联的场景，仅需配置对等连接和路由表即可。</li>
+</ul>
+</li>
+<li>VPC Transit 的优势
+<ul>
+<li>大规模网络管理简化：通过中心化网关统一管理路由策略，降低运维复杂度。</li>
+<li>混合云集成能力：可同时连接云上 VPC 和本地数据中心，实现统一网络架构。</li>
+<li>灵活的流量控制：支持路由表分层、流量监控和安全组策略集中配置。</li>
+<li>成本优化：减少全网状连接所需的 VPC Peering 数量，降低跨区域流量费用。</li>
+</ul>
+</li>
+</ol>
+<h3 id="典型应用场景">典型应用场景</h3>
+<ul>
+<li>
+<p>VPC Peering:</p>
+<ul>
+<li>开发与测试环境间的临时数据同步。</li>
+<li>跨账户的特定业务系统互通（如共享数据库）。</li>
+</ul>
+</li>
+<li>
+<p>VPC Transit：</p>
+<ul>
+<li>企业多分支架构中，连接全球分布的 VPC 和本地办公室。</li>
+<li>微服务架构下，跨多个 VPC 的服务间通信。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>总结</p>
+<ul>
+<li>选择 VPC Peering：适用于简单、小规模的 VPC 互联，强调低延迟和直接通信。</li>
+<li>选择 VPC Transit：适用于复杂网络拓扑、混合云环境或需要集中管理的场景。</li>
+</ul>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Thu Apr 3, 2025 </h4>
+		<h5 id="wc"> 2500 字数 </h5>
+		<h5 id="readtime"> 需要阅读 5 分钟 </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.site//topics/interview">interview</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/interview">interview</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/devops">devops</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.site/project/k8st/"><i class="icon-nixon-arrow-left"></i> k8st:k8s的命令行小工具</a><br>
+	</section>
+	<section id="next">
+		&nbsp;<a class="next" href="https://blog.lkjxblog.site/interview_en/">Summary of Interviews <i class="icon-nixon-arrow-right"></i></a>
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="2453">
+<meta itemprop="datePublished" content="2025-04-03">
+<meta itemprop="url" content="https://blog.lkjxblog.site/interview/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        branch="master"
+        theme="preferred-color-scheme"
+        comment-order="desc"
+        crossorigin="anonymous"
+        label="comment"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2025
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chen Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.site/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+

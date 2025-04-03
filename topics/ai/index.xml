@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/topics/ai/</link>
+    <description>Recent content in AI on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/topics/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>尝试AutoGen创建自己的AI团队</title>
+      <link>https://blog.lkjxblog.site/%E5%B0%9D%E8%AF%95autogen%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ai%E5%9B%A2%E9%98%9F/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E5%B0%9D%E8%AF%95autogen%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ai%E5%9B%A2%E9%98%9F/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;我们来尝试用微软的Autogen创建自己的AI小团队来实现完成一些简单的任务&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

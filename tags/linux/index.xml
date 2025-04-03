@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/linux/</link>
+    <description>Recent content in Linux on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在CentOS7中安装Kubernetes</title>
+      <link>https://blog.lkjxblog.site/install_kubernetes_in_centos/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/install_kubernetes_in_centos/</guid>
+      <description>&lt;p&gt;一直以来都想尝鲜下Kubernates但是每次看网站都云里雾里的，在google中看到很多博客都写了安装的步骤，于是乎我就参考了&lt;a href=&#34;http://rootsongjc.github.io/rootsongjc.github.io/about&#34;&gt;Jimmy Song&lt;/a&gt;写的&lt;a href=&#34;http://rootsongjc.github.io/blogs/kubernetes-installation-on-centos/&#34;&gt;在CentOS上安装Kubernetes详细指南&lt;/a&gt;。这里写下安装的步骤记录一下。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>备份mysql数据库的shell脚本</title>
+      <link>https://blog.lkjxblog.site/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;领导说每天都需要备份一下mysql，好吧，我总不能天天手动去弄，所以我自己写了一份shell脚本用来自动备份，crontab还是很好的呵呵!&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

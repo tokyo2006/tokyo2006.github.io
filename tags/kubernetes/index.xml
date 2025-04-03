@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8st:k8s的命令行小工具</title>
+      <link>https://blog.lkjxblog.site/project/k8st/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/project/k8st/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;k8st 是一个简化 Kubernetes 服务操作的命令行工具。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>kubernetes的最佳实践</title>
+      <link>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;kubernetes的最佳实践&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>kubernetes的作业调度</title>
+      <link>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在kubernetes中pod如何分配到节点中，都是由kube-scheduler组件来完成的，它通过不同的策略定义和规则来分配pod应该如何部署到期望的节点上。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>kubernetes的资源管理</title>
+      <link>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在kubernetes中我们是通过设置pod的CPU和内存来管理pod使用的资源的。kubernetes的调度策略也会根据资源设置的不同而有不同的处理方式。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>在CentOS7中安装Kubernetes</title>
+      <link>https://blog.lkjxblog.site/install_kubernetes_in_centos/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/install_kubernetes_in_centos/</guid>
+      <description>&lt;p&gt;一直以来都想尝鲜下Kubernates但是每次看网站都云里雾里的，在google中看到很多博客都写了安装的步骤，于是乎我就参考了&lt;a href=&#34;http://rootsongjc.github.io/rootsongjc.github.io/about&#34;&gt;Jimmy Song&lt;/a&gt;写的&lt;a href=&#34;http://rootsongjc.github.io/blogs/kubernetes-installation-on-centos/&#34;&gt;在CentOS上安装Kubernetes详细指南&lt;/a&gt;。这里写下安装的步骤记录一下。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="领导说每天都需要备份一下mysql，好吧，我总不能天天手动去弄，所以我自己写了一份shell脚本用来自动备份，crontab还是很好的呵呵!">
+<meta name="keywords" content="mysql, linux, shell, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="领导说每天都需要备份一下mysql，好吧，我总不能天天手动去弄，所以我自己写了一份shell脚本用来自动备份，crontab还是很好的呵呵!"/>
+<meta property="og:title" content="备份mysql数据库的shell脚本 : blog.lkjxblog.site"/>
+<meta property="og:site_name" content="blog.lkjxblog.site is Chen Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.site/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-03-24"/>
+<meta property="article:modified_time" content="2017-03-24"/>
+
+
+
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="shell">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="备份mysql数据库的shell脚本 : blog.lkjxblog.site">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="领导说每天都需要备份一下mysql，好吧，我总不能天天手动去弄，所以我自己写了一份shell脚本用来自动备份，crontab还是很好的呵呵!">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.site">
+
+
+
+    <base href="https://blog.lkjxblog.site/">
+    <title>备份mysql数据库的shell脚本 - blog.lkjxblog.site</title>
+    <link rel="canonical" href="https://blog.lkjxblog.site/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.site//css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.site//favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.site//apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.site//" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Chen Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.site//">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> project </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//talks/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=%e5%a4%87%e4%bb%bdmysql%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84shell%e8%84%9a%e6%9c%ac-https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25A4%2587%25E4%25BB%25BDmysql%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E7%259A%2584shell%25E8%2584%259A%25E6%259C%25AC%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25A4%2587%25E4%25BB%25BDmysql%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E7%259A%2584shell%25E8%2584%259A%25E6%259C%25AC%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25A4%2587%25E4%25BB%25BDmysql%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E7%259A%2584shell%25E8%2584%259A%25E6%259C%25AC%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25A4%2587%25E4%25BB%25BDmysql%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E7%259A%2584shell%25E8%2584%259A%25E6%259C%25AC%2f&title=%e5%a4%87%e4%bb%bdmysql%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84shell%e8%84%9a%e6%9c%ac&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25A4%2587%25E4%25BB%25BDmysql%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E7%259A%2584shell%25E8%2584%259A%25E6%259C%25AC%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25A4%2587%25E4%25BB%25BDmysql%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E7%259A%2584shell%25E8%2584%259A%25E6%259C%25AC%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">备份mysql数据库的shell脚本</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>领导说每天都需要备份一下mysql，好吧，我总不能天天手动去弄，所以我自己写了一份shell脚本用来自动备份，crontab还是很好的呵呵!
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#75715e">#! /bin/bash</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#define mysql path</span>
+</span></span><span style="display:flex;"><span>    MYSQL_BIN_PATH<span style="color:#f92672">=</span>/local/akazam/servers/akazamdb51/bin <span style="color:#75715e">#这个是你MYSQL的安装目录</span>
+</span></span><span style="display:flex;"><span>    MYSQL_BACKUP_PATH<span style="color:#f92672">=</span>/local/akazam/mysqlbak#你要备份的目录
+</span></span><span style="display:flex;"><span>        SOCKET_FILE<span style="color:#f92672">=</span>/tmp/mysql.sock
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;ERROR:Usage:please input mysql arguments&#34;</span> 1&gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;The arguments like this&#34;</span> 1&gt;&amp;2<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;./mysqlbackup.sh database [user][password] [port][bakpath]&#34;</span> 1&gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;default user is akazam ,default password is dbacc355 and&#34;</span> 1&gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;default port is 3306,if you all understand ,you can try now!&#34;</span> 1&gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get datebase</span>
+</span></span><span style="display:flex;"><span>    db<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get user</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;akazam&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">=</span>$2
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get password</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$3<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dbacc355&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            password<span style="color:#f92672">=</span>$3
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get port</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$4<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            port<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3306&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            port<span style="color:#f92672">=</span>$4
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get backpath</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$5<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            backpath<span style="color:#f92672">=</span>$MYSQL_BACKUP_PATH
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            backpath<span style="color:#f92672">=</span>$5
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get the day before yesterday</span>
+</span></span><span style="display:flex;"><span>    byd<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date --date<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1 days ago&#39;</span> <span style="color:#e6db74">&#34;+%Y%m%d&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#get today</span>
+</span></span><span style="display:flex;"><span>    today<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%Y%m%d<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#backup today&#39;s mysqldump</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -d $MYSQL_BACKUP_PATH <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            mkdir $MYSQL_BACKUP_PATH
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    cd $MYSQL_BIN_PATH
+</span></span><span style="display:flex;"><span>    ./mysqldump -u$user -p$password -h localhost $db --socket<span style="color:#f92672">=</span>$SOCKET_FILE --opt&gt;$backpath/$db$today
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;backup result is:</span>$bakresult<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#delete the day before&#39;s backup</span>
+</span></span><span style="display:flex;"><span>    rm -rf $backpath/$db$byd
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;you delete backup mydqldump is </span>$db$byd<span style="color:#e6db74"> and need backup mysqldump is </span>$db$today<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">```</span>
+</span></span></code></pre></div>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Fri Mar 24, 2017 </h4>
+		<h5 id="wc"> 400 字数 </h5>
+		<h5 id="readtime"> 需要阅读 1 分钟 </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.site//topics/database">database</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/mysql">mysql</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/linux">linux</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/shell">shell</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.site/license/"><i class="icon-nixon-arrow-left"></i> license</a><br>
+	</section>
+	<section id="next">
+		&nbsp;<a class="next" href="https://blog.lkjxblog.site/install_kubernetes_in_centos/">在CentOS7中安装Kubernetes <i class="icon-nixon-arrow-right"></i></a>
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="310">
+<meta itemprop="datePublished" content="2017-03-24">
+<meta itemprop="url" content="https://blog.lkjxblog.site/%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84shell%E8%84%9A%E6%9C%AC/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        branch="master"
+        theme="preferred-color-scheme"
+        comment-order="desc"
+        crossorigin="anonymous"
+        label="comment"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2025
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chen Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.site/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+

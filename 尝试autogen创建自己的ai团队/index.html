@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="尝试AutoGen创建自己的AI团队">
+<meta name="keywords" content="AI, AutoGen, LM Studio, ">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="尝试AutoGen创建自己的AI团队"/>
+<meta property="og:title" content="尝试AutoGen创建自己的AI团队 : blog.lkjxblog.site"/>
+<meta property="og:site_name" content="blog.lkjxblog.site is Chen Zeng"/>
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://blog.lkjxblog.site/%E5%B0%9D%E8%AF%95autogen%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ai%E5%9B%A2%E9%98%9F/">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-11"/>
+<meta property="article:modified_time" content="2024-01-11"/>
+
+
+
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="AutoGen">
+<meta property="article:tag" content="LM Studio">
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rurounikexin">
+<meta name="twitter:title" content="尝试AutoGen创建自己的AI团队 : blog.lkjxblog.site">
+<meta name="twitter:creator" content="@rurounikexin">
+<meta name="twitter:description" content="尝试AutoGen创建自己的AI团队">
+<meta name="twitter:image:src" content="">
+<meta name="twitter:domain" content="blog.lkjxblog.site">
+
+
+
+    <base href="https://blog.lkjxblog.site/">
+    <title>尝试AutoGen创建自己的AI团队 - blog.lkjxblog.site</title>
+    <link rel="canonical" href="https://blog.lkjxblog.site/%E5%B0%9D%E8%AF%95autogen%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ai%E5%9B%A2%E9%98%9F/">
+    
+
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://blog.lkjxblog.site//css/nixon.css">
+
+    <link rel="shortcut icon" href="https://blog.lkjxblog.site//favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://blog.lkjxblog.site//apple-touch-icon.png" />
+</head>
+
+<body lang="en" itemscope itemtype="https://schema.org/Article">
+<header id="header">
+    <figure>
+      <a href="https://blog.lkjxblog.site//" border=0 id="logolink"><div class="icon-nixon-home" id="logo"> </div></a>
+    </figure>
+    <div id="byline">by Chen Zeng</div>
+    <nav id="nav">
+            <ul id="mainnav">
+            <li>
+                <a href="https://blog.lkjxblog.site//">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-quill"></i></span>
+                <span> blog </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//project/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-console"></i></span>
+                <span> project </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//talks/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-talk"></i></span>
+                <span> talks </span>
+            </a>
+            </li>
+            <li>
+            <a href="https://blog.lkjxblog.site//about/">
+                <span class="icon"> <i aria-hidden="true" class="icon-nixon-linkedin"></i></span>
+                <span> me </span>
+            </a>
+            </li>
+        </ul>
+
+        
+
+    <ul id="social">
+	<li id="share">
+		<span class="icon icon-bubbles"> </span><span class="title"> share </span>
+		<div class="dropdown share">
+			<ul class="social">
+				<li>
+					<a href="https://twitter.com/intent/tweet?status=%e5%b0%9d%e8%af%95AutoGen%e5%88%9b%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84AI%e5%9b%a2%e9%98%9f-https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25B0%259D%25E8%25AF%2595autogen%25E5%2588%259B%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584ai%25E5%259B%25A2%25E9%2598%259F%2f" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25B0%259D%25E8%25AF%2595autogen%25E5%2588%259B%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584ai%25E5%259B%25A2%25E9%2598%259F%2f" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/share?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25B0%259D%25E8%25AF%2595autogen%25E5%2588%259B%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584ai%25E5%259B%25A2%25E9%2598%259F%2f" target="_blank" title="Google+" class="googleplus"><span class="icon icon-google-plus"></span>Google+</a>
+				</li>
+
+				<li>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25B0%259D%25E8%25AF%2595autogen%25E5%2588%259B%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584ai%25E5%259B%25A2%25E9%2598%259F%2f&title=%e5%b0%9d%e8%af%95AutoGen%e5%88%9b%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84AI%e5%9b%a2%e9%98%9f&source=https%3a%2f%2flinkedin.com%2fin%2fdawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+				<li>
+					<a href="https://del.icio.us/post?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25B0%259D%25E8%25AF%2595autogen%25E5%2588%259B%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584ai%25E5%259B%25A2%25E9%2598%259F%2f" target="_blank" title="Delicious" class="delicious"><span class="icon icon-delicious"></span>Delicious</a>
+				</li>
+				<li>
+					<a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.lkjxblog.site%2f%25E5%25B0%259D%25E8%25AF%2595autogen%25E5%2588%259B%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584ai%25E5%259B%25A2%25E9%2598%259F%2f" target="_blank" title="Reddit" class="reddit"><span class="icon icon-reddit"></span>Reddit</a>
+				</li>
+			</ul>
+			<span class="subcount">sharing is caring</span>
+		</div>
+	</li>
+	<li id="follow">
+		<span class="icon icon-rocket"> </span><span class="title"> follow </span>
+		<div class="dropdown follow">
+			<ul class="social">
+
+
+				<li>
+					<a href="https://www.twitter.com/rurounikexin" target="_blank" title="Follow me on Twitter" class="twitter"><span class="icon icon-twitter"></span>Twitter</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.facebook.com/fei.jianxin" target="_blank" title="Join me on Facebook" class="facebook"><span class="icon icon-facebook"></span>Facebook</a>
+				</li>
+
+
+				<li>
+					<a href="https://www.linkedin.com/in/dawnzeng" target="_blank" title="LinkedIn" class="linkedin"><span class="icon icon-linkedin"></span>LinkedIn</a>
+				</li>
+
+
+				<li>
+					<a href="https://github.com/tokyo2006" target="_blank" title="GitHub" class="github"><span class="icon icon-github"></span>GitHub</a>
+				</li>
+
+
+
+			</ul>
+			<span class="subcount">join 10k+ subscribers &amp; followers</span>
+		</div>
+	</li>
+</ul>
+
+    </nav>
+</header>
+
+
+
+<section id="main">
+  <h1 itemprop="name" id="title">尝试AutoGen创建自己的AI团队</h1>
+  <div>
+        <article itemprop="articleBody" id="content">
+           <pre><code>我们来尝试用微软的Autogen创建自己的AI小团队来实现完成一些简单的任务
+</code></pre>
+<h2 id="什么是autogen">什么是AutoGen</h2>
+<p><a href="https://microsoft.github.io/autogen/">AutoGen</a>是一个微软开源的AI框架，它允许使用多个代理开发LLM应用程序，这些代理可以相互交谈以解决任务。AutoGen代理是可定制的、可对话的，并且无缝地允许人类参与。它们可以在各种模式下运行，这些模式结合了LLM、人工输入和工具。<br>
+以下是AutoGen的简单介绍：</p>
+<ul>
+<li>AutoGen支持以最小的工作量构建基于多代理对话的下一代LLM应用程序。它简化了复杂LLM工作流的编排、自动化和优化。它最大限度地提高了LLM模型的性能，克服了它们的缺点。</li>
+<li>它支持复杂工作流的多种对话模式。有了可定制和可对话的代理，开发人员可以使用AutoGen来构建关于对话自治、代理数量和代理对话拓扑的广泛对话模式。</li>
+<li>它提供了一组具有不同复杂性的工作系统。这些系统涵盖了来自不同领域和复杂性的广泛应用。这演示了AutoGen如何轻松支持各种对话模式。</li>
+<li>AutoGen提供了openai的直接替代品。完成或打开。ChatCompletion作为一个增强的推理API。它支持简单的性能调优、API统一和缓存等实用程序以及高级使用模式，如错误处理、多配置推理、上下文编程等。</li>
+</ul>
+<h2 id="打造自己的ai小团队">打造自己的AI小团队</h2>
+<h3 id="系统需求">系统需求</h3>
+<ul>
+<li>你需要在自己的本地安装python（&gt;=3.8）环境，具体安装步骤请参考<a href="https://www.python.org/">官网</a></li>
+<li>科学上网（懂的都懂）</li>
+<li>【可选】安装<a href="https://lmstudio.ai/">LM Studio</a>(这个工具能够帮助我们下载所需要的大模型并可以选择大模型暴露类openai的API服务，如果你有钱用ChatGPT-4就不需要安装这个)。</li>
+</ul>
+<h3 id="安装autogen">安装AutoGen</h3>
+<p>通过pip安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install pyautogen
+</span></span></code></pre></div><h3 id="启动lm-studio并下载一份大模型可选">启动LM Studio并下载一份大模型【可选】</h3>
+<p>在这里我们使用Mistral 7B大模型来替代OpenAI的GPT-4,毕竟用那个要钱，但是效果肯定是那个最好了。有钱就直接用，可以忽略LM Studio</p>
+<ol>
+<li>下载大模型
+<img src="https://res.cloudinary.com/xinta/image/upload/v1705027986/blogimage/lm_studio.png" alt="lm_studio">
+启动以此大模型的API服务器</li>
+<li>启动API服务
+<ol>
+<li>选择模型</li>
+<li>设置端口</li>
+<li>根据机器是否开启GPU加速
+<img src="https://res.cloudinary.com/xinta/image/upload/v1705027998/blogimage/start_server.png" alt="start_server"></li>
+</ol>
+</li>
+</ol>
+<p>如果启动成功可以看到下面的输出
+<img src="https://res.cloudinary.com/xinta/image/upload/v1705027991/blogimage/server_log.png" alt="server_log"></p>
+<h3 id="编写代码">编写代码</h3>
+<p>这里我们来编写一份一个让AI团队来根据你的描述完成一个简单的工作，我们这里设置的是：在工作目录中使用<a href="https://blog.lkjxblog.site/resource/cars.csv">cars.csv</a>中的数据，绘制一个可视化图，告诉我们重量和“每加仑城市英里数”之间的关系。将绘图保存到文件中。在可视化数据集之前打印数据集中的字段。</p>
+<p>我们创建一个目录结构如下：</p>
+<pre tabindex="0"><code>autogen
+│
+├── groupchat
+│   └── cars.csv
+└── analyze_cars.py
+</code></pre><p>在analyze_cars.py里面添加我们的代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> autogen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 这里添加我们使用的大模型，如果你使用chatgpt-4,可以改成下面的方式</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># config_list = [</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     {</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         &#34;model&#34;: &#34;gpt-4&#34;,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         &#34;api_key&#34;: &#34;&lt;your OpenAI API key here&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     },</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ]</span>
+</span></span><span style="display:flex;"><span>config_list <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;chatglm2-6b&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;api_base&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:1234/v1&#34;</span>, <span style="color:#75715e">#这里添加我们开启的本地API服务地址</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;api_type&#34;</span>: <span style="color:#e6db74">&#34;open_ai&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;api_key&#34;</span>: <span style="color:#e6db74">&#34;NULL&#34;</span>, <span style="color:#75715e"># 这里仅仅是一个占位，因为我们本地的服务没有设置认证</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>llm_config <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;request_timeout&#34;</span>: <span style="color:#ae81ff">600</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;seed&#34;</span>: <span style="color:#ae81ff">42</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;config_list&#34;</span>: config_list,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;temperature&#34;</span>:<span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建一个用户代理，我们通过这个代理来作为输入我们需求的入口</span>
+</span></span><span style="display:flex;"><span>user_proxy <span style="color:#f92672">=</span> autogen<span style="color:#f92672">.</span>UserProxyAgent(
+</span></span><span style="display:flex;"><span>   name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;User_proxy&#34;</span>,
+</span></span><span style="display:flex;"><span>   system_message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A human admin.&#34;</span>,
+</span></span><span style="display:flex;"><span>   code_execution_config<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;last_n_messages&#34;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;work_dir&#34;</span>: <span style="color:#e6db74">&#34;groupchat&#34;</span>,<span style="color:#e6db74">&#34;use_docker&#34;</span>:<span style="color:#66d9ef">False</span>},
+</span></span><span style="display:flex;"><span>   human_input_mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;NEVER&#34;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建一个开发的助理，AutoGen通过这个AI助理来根据评判助理的建议来写代码</span>
+</span></span><span style="display:flex;"><span>coder <span style="color:#f92672">=</span> autogen<span style="color:#f92672">.</span>AssistantAgent(
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Coder&#34;</span>,  
+</span></span><span style="display:flex;"><span>    llm_config<span style="color:#f92672">=</span>llm_config,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建一个评判助理，能够分析用户代理提出的需求，并对开发助理写的代码进行评估并提出意见</span>
+</span></span><span style="display:flex;"><span>critic <span style="color:#f92672">=</span> autogen<span style="color:#f92672">.</span>AssistantAgent(
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Critic&#34;</span>,
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;&#34;Critic. You are a helpful assistant highly skilled in evaluating the quality of a given visualization code by providing a score from 1 (bad) - 10 (good) while providing clear rationale. YOU MUST CONSIDER VISUALIZATION BEST PRACTICES for each evaluation. Specifically, you can carefully evaluate the code across the following dimensions
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- bugs (bugs):  are there bugs, logic errors, syntax error or typos? Are there any reasons why the code may fail to compile? How should it be fixed? If ANY bug exists, the bug score MUST be less than 5.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Data transformation (transformation): Is the data transformed appropriately for the visualization type? E.g., is the dataset appropriated filtered, aggregated, or grouped  if needed? If a date field is used, is the date field first converted to a date object etc?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Goal compliance (compliance): how well the code meets the specified visualization goals?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Visualization type (type): CONSIDERING BEST PRACTICES, is the visualization type appropriate for the data and intent? Is there a visualization type that would be more effective in conveying insights? If a different visualization type is more appropriate, the score MUST BE LESS THAN 5.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Data encoding (encoding): Is the data encoded appropriately for the visualization type?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- aesthetics (aesthetics): Are the aesthetics of the visualization appropriate for the visualization type and the data?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">YOU MUST PROVIDE A SCORE for each of the above dimensions.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{bugs: 0, transformation: 0, compliance: 0, type: 0, encoding: 0, aesthetics: 0}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Do not suggest code. 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Finally, based on the critique above, suggest a concrete list of actions that the coder should take to improve the code.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    llm_config<span style="color:#f92672">=</span>llm_config,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 讲用户代理，开发助理以及评判助理组成一个团队并讲需求输入让开发处理和评判助理共同解决用户提出的问题</span>
+</span></span><span style="display:flex;"><span>groupchat <span style="color:#f92672">=</span> autogen<span style="color:#f92672">.</span>GroupChat(agents<span style="color:#f92672">=</span>[user_proxy, coder, critic], messages<span style="color:#f92672">=</span>[], max_round<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>manager <span style="color:#f92672">=</span> autogen<span style="color:#f92672">.</span>GroupChatManager(groupchat<span style="color:#f92672">=</span>groupchat, llm_config<span style="color:#f92672">=</span>llm_config)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>user_proxy<span style="color:#f92672">.</span>initiate_chat(manager, message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;use data from cars.csv in work dir and plot a visualization that tells us about the relationship between weight and horsepower. Save the plot to a file. Print the fields in a dataset before visualizing it.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># type exit to terminate the chat</span>
+</span></span></code></pre></div><p>执行这段代码</p>
+<pre tabindex="0"><code>python analyze_cars.py
+</code></pre><p>你就可以看到整个AI助理的输出了</p>
+<h2 id="结论">结论</h2>
+<p>通过使用多个AI助理的方式可以完成更加复杂的工作，这也是一种趋势，我相信在不久的将来，通过这种方式，能极大的提高人类在各个行业中的效率，就我自己使用本地的大模型来说还是有一些问题，例如生成的代码就算被评判助理认为可执行，实际执行过程还是会出错，但是基于chatgpt-4的模型，是能够正确的运行需求并生成响应的图片的。
+<img src="https://res.cloudinary.com/xinta/image/upload/v1705028527/blogimage/cars_plot.png" alt="result"></p>
+        </article>
+  </div>
+</section>
+
+
+
+<aside id="meta">
+
+<div>
+	<section id="datecount">
+		<h4 id="date"> Thu Jan 11, 2024 </h4>
+		<h5 id="wc"> 1900 字数 </h5>
+		<h5 id="readtime"> 需要阅读 4 分钟 </h5>
+	</section>
+	<ul id="categories">
+	
+		<li><a href="https://blog.lkjxblog.site//topics/ai">AI</a> </li>
+	
+	</ul>
+	<ul id="tags">
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/ai">AI</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/autogen">AutoGen</a> </li>
+	
+		<li> <a href="https://blog.lkjxblog.site//tags/lm-studio">LM Studio</a> </li>
+	
+	</ul>
+</div>
+
+<div>
+	<section id="prev">
+		&nbsp;<a class="previous" href="https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/"><i class="icon-nixon-arrow-left"></i> kubernetes的作业调度</a><br>
+	</section>
+	<section id="next">
+		&nbsp;<a class="next" href="https://blog.lkjxblog.site/project/split_keyboard/">自己做的键盘布局展示 <i class="icon-nixon-arrow-right"></i></a>
+	</section>
+</div>
+
+
+</aside>
+
+<meta itemprop="wordCount" content="1846">
+<meta itemprop="datePublished" content="2024-01-11">
+<meta itemprop="url" content="https://blog.lkjxblog.site/%E5%B0%9D%E8%AF%95autogen%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84ai%E5%9B%A2%E9%98%9F/">
+
+
+<aside id=comments>
+ <div><h2> Comments </h2></div>
+
+<div id="container"></div>
+<script src="https://beaudar.lipk.org/client.js"
+        repo="tokyo2006/tokyo2006.github.io"
+        issue-term="url"
+        branch="master"
+        theme="preferred-color-scheme"
+        comment-order="desc"
+        crossorigin="anonymous"
+        label="comment"
+        async>
+</script>
+
+</aside>
+
+<footer>
+	<div>
+		<p>
+			Copyright &copy; 2025
+			
+			<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chen Zeng.</span>
+			</span>
+			
+			<a rel="license" href="https://blog.lkjxblog.site/license/"
+				title="Creative Commons Attribution">all rights reserved</a>; Powered by <a
+				href="https://gohugo.io">Hugo</a>.
+		</p>
+	</div>
+</footer>
+<script type="text/javascript">
+	(function () {
+		var j = function (a, b) {
+			return window.getComputedStyle ? getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b]
+		};
+		var k = function (a, b, c) {
+			if (a.addEventListener) a.addEventListener(b, c, false);
+			else a.attachEvent('on' + b, c)
+		};
+		var l = function (a, b) {
+			for (key in b)
+				if (b.hasOwnProperty(key)) a[key] = b[key];
+			return a
+		};
+		window.fitText = function (d, e, f) {
+			var g = l({
+				'minFontSize': -1 / 0,
+				'maxFontSize': 1 / 0
+			}, f);
+			var h = function (a) {
+				var b = e || 1;
+				var c = function () {
+					a.style.fontSize = Math.max(Math.min(a.clientWidth / (b * 10), parseFloat(g
+						.maxFontSize)), parseFloat(g.minFontSize)) + 'px'
+				};
+				c();
+				k(window, 'resize', c)
+			};
+			if (d.length)
+				for (var i = 0; i < d.length; i++) h(d[i]);
+			else h(d);
+			return d
+		}
+	})();
+	fitText(document.getElementById('title'), 1)
+
+</script>
+
+</body>
+
+</html>
+

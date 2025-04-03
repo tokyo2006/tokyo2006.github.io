@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/git/</link>
+    <description>Recent content in Git on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>运维眼中的源代码版本管理</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;源代码的管理可以说是所有软件应用的基石，它也是生命周期的开始。我会从这里开始详细的回顾整个软件生命周期的每一个流程&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>
