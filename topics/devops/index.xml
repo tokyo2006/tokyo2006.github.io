@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/topics/devops/</link>
+    <description>Recent content in Devops on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/topics/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用ArgoCD部署应用</title>
+      <link>https://blog.lkjxblog.site/%E4%BD%BF%E7%94%A8argocd%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E4%BD%BF%E7%94%A8argocd%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;这篇文章会简单介绍如何使用ArgoCD进行应用的部署。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>安装ArgoCD</title>
+      <link>https://blog.lkjxblog.site/%E5%AE%89%E8%A3%85argocd/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E5%AE%89%E8%A3%85argocd/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;用过ArgoCD已经有一段时间了，准备写一些使用的心得算是工作的日常记录吧。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>kubernetes的最佳实践</title>
+      <link>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;kubernetes的最佳实践&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>kubernetes的作业调度</title>
+      <link>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在kubernetes中pod如何分配到节点中，都是由kube-scheduler组件来完成的，它通过不同的策略定义和规则来分配pod应该如何部署到期望的节点上。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>kubernetes的资源管理</title>
+      <link>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/kubernetes%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在kubernetes中我们是通过设置pod的CPU和内存来管理pod使用的资源的。kubernetes的调度策略也会根据资源设置的不同而有不同的处理方式。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>运维眼中的监控和告警以及事故管理</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E7%9B%91%E6%8E%A7%E5%92%8C%E5%91%8A%E8%AD%A6%E4%BB%A5%E5%8F%8A%E4%BA%8B%E6%95%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E7%9B%91%E6%8E%A7%E5%92%8C%E5%91%8A%E8%AD%A6%E4%BB%A5%E5%8F%8A%E4%BA%8B%E6%95%85%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;监控和告警对于已上线的服务至关重要，因为硬件或软件问题可能导致服务不可用或响应缓慢。通过采集服务的指标数据并进行监控和告警，可以在用户察觉到问题之前，让SRE团队立即介入并与负责服务的团队合作解决问题，从而提高用户体验。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>运维眼中的CD流程</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84cd%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84cd%E6%B5%81%E7%A8%8B/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;CD（Continues  Deployment）指的就是可持续性部署软件，由于一直从事的是互联网企业，所以涉及的软件部署都是Web应用，在敏捷开发中，应用总是在不停地迭代，在迭代的过程中也是不停地在各个环境中更新部署迭代的版本，在持续部署中，我们同样也应该遵循一套部署流程来保证我们应用的可用性。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>运维眼中的CI流程</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84ci%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84ci%E6%B5%81%E7%A8%8B/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;软件开发中的测试构建就是一个不断循环的过程，软件就是在这个过程中不断地迭代更新，这里就会涉及一个软件持续构建的流程，就是我们通常说的CI(Continus Intergration)持续集成。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>运维眼中的源代码测试与构建</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%9E%84%E5%BB%BA/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%9E%84%E5%BB%BA/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在上一篇文章中已经概述了软件服务源代码的版本管理，那么接下来就是软件服务的构建与测试了，它决定了软件的稳定性和健壮性。这篇文章会谈谈我对软件服务测试构建的看法&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>运维眼中的源代码版本管理</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;源代码的管理可以说是所有软件应用的基石，它也是生命周期的开始。我会从这里开始详细的回顾整个软件生命周期的每一个流程&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>运维眼中的软件生命周期</title>
+      <link>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E8%BF%90%E7%BB%B4%E7%9C%BC%E4%B8%AD%E7%9A%84%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;在Devops岗位已经工作了差不多5年的时间，期间也遇到了许多的问题，很久没有写过博客来回顾一下这5年的工作经历了，趁现在闲来无事记录一下我眼中的软件生命周期。&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>搭建Nomad服务与Consul集成</title>
+      <link>https://blog.lkjxblog.site/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/%E6%90%AD%E5%BB%BAnomad%E6%9C%8D%E5%8A%A1%E4%B8%8Econsul%E9%9B%86%E6%88%90/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;Nomad是HashCorp的一款开源的编排工具,同样身为HashCorp的服务发现工具consul能够很好的与Nomad进行集成，2个轻量级别的工具可以很好的支持微服务的快速发布。这里会简单的说一下nomad的集群以及consul集群的集成&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

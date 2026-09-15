@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Chen Zeng的博客</title>
+    <link>https://blog.lkjxblog.site/tags/</link>
+    <description>Recent content in Tags on Chen Zeng的博客</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.lkjxblog.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Devops</title>
+      <link>https://blog.lkjxblog.site/tags/devops/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Interview</title>
+      <link>https://blog.lkjxblog.site/tags/interview/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/interview/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://blog.lkjxblog.site/tags/kubernetes/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://blog.lkjxblog.site/tags/python/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mimir</title>
+      <link>https://blog.lkjxblog.site/tags/mimir/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/mimir/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>https://blog.lkjxblog.site/tags/monitoring/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Promethus</title>
+      <link>https://blog.lkjxblog.site/tags/promethus/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/promethus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ArgoCD</title>
+      <link>https://blog.lkjxblog.site/tags/argocd/</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/argocd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xinta</title>
+      <link>https://blog.lkjxblog.site/tags/xinta/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/xinta/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS</title>
+      <link>https://blog.lkjxblog.site/tags/aws/</link>
+      <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VPC</title>
+      <link>https://blog.lkjxblog.site/tags/vpc/</link>
+      <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/vpc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Charybdis</title>
+      <link>https://blog.lkjxblog.site/tags/charybdis/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/charybdis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qmk</title>
+      <link>https://blog.lkjxblog.site/tags/qmk/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/qmk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redox</title>
+      <link>https://blog.lkjxblog.site/tags/redox/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/redox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Split Keyboard</title>
+      <link>https://blog.lkjxblog.site/tags/split-keyboard/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/split-keyboard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Totem</title>
+      <link>https://blog.lkjxblog.site/tags/totem/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/totem/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trackball</title>
+      <link>https://blog.lkjxblog.site/tags/trackball/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/trackball/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zmk</title>
+      <link>https://blog.lkjxblog.site/tags/zmk/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/zmk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://blog.lkjxblog.site/tags/ai/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AutoGen</title>
+      <link>https://blog.lkjxblog.site/tags/autogen/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/autogen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LM Studio</title>
+      <link>https://blog.lkjxblog.site/tags/lm-studio/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/lm-studio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Datadog</title>
+      <link>https://blog.lkjxblog.site/tags/datadog/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/datadog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grafana</title>
+      <link>https://blog.lkjxblog.site/tags/grafana/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/grafana/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lifecycle</title>
+      <link>https://blog.lkjxblog.site/tags/lifecycle/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/lifecycle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pageduty</title>
+      <link>https://blog.lkjxblog.site/tags/pageduty/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/pageduty/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sentry</title>
+      <link>https://blog.lkjxblog.site/tags/sentry/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/sentry/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://blog.lkjxblog.site/tags/shell/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Splunk</title>
+      <link>https://blog.lkjxblog.site/tags/splunk/</link>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/splunk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buildkite</title>
+      <link>https://blog.lkjxblog.site/tags/buildkite/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/buildkite/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github Actions</title>
+      <link>https://blog.lkjxblog.site/tags/github-actions/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jenkins</title>
+      <link>https://blog.lkjxblog.site/tags/jenkins/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CI Building</title>
+      <link>https://blog.lkjxblog.site/tags/ci-building/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/ci-building/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CI Testing</title>
+      <link>https://blog.lkjxblog.site/tags/ci-testing/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/ci-testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker Registory</title>
+      <link>https://blog.lkjxblog.site/tags/docker-registory/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/docker-registory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github Action</title>
+      <link>https://blog.lkjxblog.site/tags/github-action/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/github-action/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github Package</title>
+      <link>https://blog.lkjxblog.site/tags/github-package/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/github-package/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jfrog</title>
+      <link>https://blog.lkjxblog.site/tags/jfrog/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/jfrog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nexus</title>
+      <link>https://blog.lkjxblog.site/tags/nexus/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/nexus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sourcecode</title>
+      <link>https://blog.lkjxblog.site/tags/sourcecode/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/sourcecode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://blog.lkjxblog.site/tags/git/</link>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Consul</title>
+      <link>https://blog.lkjxblog.site/tags/consul/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/consul/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nomad</title>
+      <link>https://blog.lkjxblog.site/tags/nomad/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/nomad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://blog.lkjxblog.site/tags/docker/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://blog.lkjxblog.site/tags/linux/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mysql</title>
+      <link>https://blog.lkjxblog.site/tags/mysql/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.lkjxblog.site/tags/mysql/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
